@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>A list of games</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	</head>
+	<body>
+		<div class="container">
+		{% if games %}
+	    	{% for game in games %}
+			<div class="row">
+        	<a href="/games/{{ game.id }}/">{{ game.title }}</a>
+	        </div>
+        	<div class="row">
+	        	<ul class="list-unstyled">
+	        		<li>{{ game.platform.title}}</li>
+	        		<li>{{ game.publishing_year.year }}</li>
+	        	</ul>
+        	</div>
+	    	{% endfor %}
+		{% else %}
+			<p> no content </p>
+		{% endif %}
+			</div>
+		</div>
+	</body>
+</html>
